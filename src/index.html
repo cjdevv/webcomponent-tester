@@ -10,8 +10,8 @@
 
 
   <script src="./custom-elements-es5-adapter.js"></script>
-  <script src="./webcomponents-loader.js"></script>
-  <script>
+  <script src="./webcomponents-loader.js" defer></script>
+  <script type="module">
     WebComponents.waitFor(() => {
       var script = document.createElement('script');
       script.src = '<%= htmlWebpackPlugin.files.js[0] %>';
