@@ -27,18 +27,22 @@ module.exports = {
     }]
   },
   plugins: [
-    new CopyWebpackPlugin([
+    new CopyWebpackPlugin([{
+        from: './node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
+        to: 'webcomponents-loader.js',
+        toType: 'file'
+      },
       {
-      from: './node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js',
-      to: 'webcomponents-bundle.js',
-      toType: 'file'
-    },
-    {
-      from: './node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
-      to: 'custom-elements-es5-adapter.js',
-      toType: 'file'
-    }
-  ]),
+        from: './node_modules/@webcomponents/webcomponentsjs/bundles',
+        to: 'bundles',
+        toType: 'dir'
+      },
+      {
+        from: './node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
+        to: 'custom-elements-es5-adapter.js',
+        toType: 'file'
+      }
+    ]),
 
     new HtmlWebpackPlugin({
       template: './src/index.html',

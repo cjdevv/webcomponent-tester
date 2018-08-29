@@ -6,7 +6,3 @@ class Card extends HTMLElement {
 }
 
 export default Card;
-
-// export default function hey(){
-//     console.log('hey');
-// }

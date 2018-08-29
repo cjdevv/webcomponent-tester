@@ -8,30 +8,18 @@
 <body>
   <card-card></card-card>
 
-  <!--
-      Use the webcomponents-loader script which will feature detect which Web
-      Components features are missing and lazy load the appropriate polyfills.
-      When we hear the 'WebComponentsReady' event from the polyfill bundle we can
-      insert our 'bundle.js'.
-    -->
+
+  <script src="./custom-elements-es5-adapter.js"></script>
+  <script src="./webcomponents-loader.js"></script>
   <script>
-    (function () {
-      document.addEventListener('WebComponentsReady', function componentsReady() {
-        document.removeEventListener('WebComponentsReady', componentsReady, false);
-        var script = document.createElement('script');
-        script.src = './custom-elements-es5-adapter.js';
+    WebComponents.waitFor(() => {
+      var script = document.createElement('script');
+      script.src = '<%= htmlWebpackPlugin.files.js[0] %>';
 
-        var refScript = document.getElementsByTagName('script')[0];
-        refScript.parentNode.insertBefore(script, refScript);
-
-        script = document.createElement('script');
-        script.src = '<%= htmlWebpackPlugin.files.js[0] %>';
-        refScript.parentNode.insertBefore(script, refScript);
-        
-      }, false);
-    })();
+      var refScript = document.getElementsByTagName('script')[0];
+      refScript.parentNode.insertBefore(script, refScript);
+    })
   </script>
-  <script src="./webcomponents-bundle.js"></script>
 </body>
 
 </html>
