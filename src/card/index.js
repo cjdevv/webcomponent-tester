@@ -1,7 +1,7 @@
 class Card extends HTMLElement {
     constructor() {
         super();
-        console.log('its a me, some shit');
+        console.log('its a me, a card');
     }
 }
 
