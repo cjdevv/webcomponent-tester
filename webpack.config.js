@@ -28,14 +28,14 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([{
-        from: './node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
-        to: 'webcomponents-loader.js',
-        toType: 'file'
-      },
-      {
         from: './node_modules/@webcomponents/webcomponentsjs/bundles',
         to: 'bundles',
         toType: 'dir'
+      },
+      {
+        from: './node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
+        to: 'webcomponents-loader.js',
+        toType: 'file'
       },
       {
         from: './node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
